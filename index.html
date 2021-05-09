@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Digital Clock</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 200%;
+            background-color: gray;
+        }
+        h1{
+            font-size: 100%;
+        }
+        #clock{
+            margin-top: 15vh;
+            background-color: rgb(39, 163, 204);
+            width: 70vw;
+            margin-left: 15vw;
+            border-radius: 20px;
+            padding-top: 10vh;
+            padding-bottom: 10vh;
+            box-shadow: 0px 10px 30px rgb(20, 20, 20);
+        }
+        #colon{
+            display: inline-block;
+            background-color: rgb(39, 163, 204);
+        }
+        span{
+            background-color: yellow;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1><u>24 Hour Digital Clock</u></h1>
+    <div id='clock'>
+        <span id='hours'></span>&nbsp;<div id='colon'>:</div>
+        <span id='minutes'></span>&nbsp;<div id='colon'>:</div>
+        <span id='seconds'></span>
+    </div>
+    <script>
+        const hours = document.getElementById('hours');
+        const minutes = document.getElementById('minutes');
+        const seconds = document.getElementById('seconds');
+
+        setInterval(()=>{
+            var date = new Date();
+            hours.innerHTML = date.getHours();
+            minutes.innerHTML = date.getMinutes();
+            seconds.innerHTML = date.getSeconds();
+            var spans = document.querySelectorAll('span');
+            spans.forEach((span)=>{
+                if(span.innerHTML.length==1){
+                    span.innerHTML = `0${span.innerHTML}`;
+                }
+            })
+
+        }, 100);
+    </script>
+</body>
+</html>
